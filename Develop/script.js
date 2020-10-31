@@ -11,26 +11,48 @@ var userNumbers;//this helps the program call back the numbers or what have you 
 var userUpperCase;
 var userLowerCase;
 
-// // Write password to the #password input
-function writePassword() {
-  userLength = prompt("How many Characters in your Password?");
-  
-  while(userLength < 7 || userLength > 128) {
-    alert ("password must be between 8 and 128");
+
+//i need to create the function that is being called back to in generate password
+function generatePassword(){
     userLength = prompt("How many Characters in your Password?");
+
+    while(userLength < 7 || userLength > 128) {
+      alert ("password must be between 8 and 128");
+      userLength = prompt("How many Characters in your Password?");
   }
 //i need to set the critera for the password. i need to create prompts for the user to tell me what they want. by storing the user responise in variables i can call back to it later...at least i think i can.
     userSymbols=confirm("do you want to use symbols?");
     userNumbers=confirm("do you want to use numbers?");
     userUpperCase=confirm("do youwant to use upper case lettering?");
     userLowerCase=confirm("do you want to use lower case lettering?");
-    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // Write password to the #password input
+function writePassword() {
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
+
+
 
 // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);//every time i click the genreate btn it runs the 'write password' code which includes the logic for generating and asking the requists for the password. 
