@@ -28,7 +28,7 @@ function generatePassword(){
 
 }
 
-
+//time to create the second empty array wilson was talking about. this will store the values the user enter when they click ok. 
 
 
 
