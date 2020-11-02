@@ -47,12 +47,13 @@ if (userLowerCase){
 }
 console.log(userPassword);
 //i need to force the user to pick at least one choice
-while (userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false);
-userNumbers;
-userLowerCase;
-userSymbols;
-userUpperCase
-
+while (userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
+alert("You need at least one criterion");
+userSymbols = confirm ("Should we add Symbols this time?");
+userNumbers = confirm ("Should we add Numbers this time?");
+userUpperCase= confirm("How about Upper Case Letters?");
+userLowerCase = confirm("Lower Case Letters?");
+}
 
 var newPassword = ""// this is the variable for the random number that the loop will push out//
 //this is the loop that pops out the random character from the array//
