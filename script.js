@@ -19,7 +19,7 @@ function generatePassword(){
       userLength = prompt("How many characters in your Password?");
   }  
 
-while(userLength < 7 || userLength > 128){
+while(userLength < 7 || userLength > 127){
   alert("You need to pick a number between 8 and 128");
   userLength = prompt("Now...how many characters in your password?");
 }
