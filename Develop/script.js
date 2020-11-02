@@ -47,13 +47,25 @@ console.log(userPassword);
 
 var newPassword = ""
 
-for (var i =0; i <userLength; i++);{
+for (var i =0; i <userLength; i++){
   newPassword=newPassword + userPassword[Math.floor(Math.random() * userPassword.length)];
 }
 return newPassword;
   
 }
 // // Write password to the #password input
+
+// for (var i = 0; i < userLength; i++) {
+//   newPassword = newPassword + userPassword[Math.floor(Math.random() * userPassword.length)];
+//   console.log(newPassword)
+// }
+// return newPassword;
+// }
+
+
+
+
+
 function writePassword() {
   
   var password = generatePassword();
