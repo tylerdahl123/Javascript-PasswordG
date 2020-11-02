@@ -30,7 +30,7 @@ var userNumbers=confirm("Should we include Numbers?");
 var userUpperCase=confirm("How about Upper Case Letters?");
 var  userLowerCase=confirm("Lower Case Letters?");
 
-while ( userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
+if ( userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
 alert("You need at least one criterion");
 userSymbols = confirm ("Should we add Symbols this time?");
 userNumbers = confirm ("Should we add Numbers this time?");
