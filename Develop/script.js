@@ -4,31 +4,35 @@ var numbers=["0","1","2","3","4","5","6","7","8","9"];
 var symbols =["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var userLength=""//undefined because the user fills in this array//they are not picking from a prerendered array. 
-var userSymbols;// i have to create user variables to store the users input to call back later
-var userNumbers;//this helps the program call back the numbers or what have you when creating the password
+var userLength=""//undefined because the user fills in this array//they are not picking from a prerendered array. //
+var userSymbols;// i have to create user variables to store the users input to call back later//
+var userNumbers;//this helps the program call back the numbers or whatever when creating the password//
 var userUpperCase;
 var userLowerCase;
-
-
-//i need to create the function that is being called back to in generatePassword
+ 
+//I need to create the function that is being called back to in generatePassword downbelow. i was trying to make a new function entirely before. make sure to slow down and read all the code.//
 function generatePassword(){
     userLength = prompt("How many Characters in your Password?");
-
+//user length has a new value cause the user filled them in. 
     if(userLength < 7 || userLength > 128) {
       alert ("password must be between 8 and 128");
       userLength = prompt("How many Characters in your Password?");
   }  
-//i need to set the critera for the password. i need to create prompts for the user to tell me what they want. by storing the user responise in variables i can call back to it later...at least i think i can.
-    userSymbols=confirm("do you want to use symbols?");
-    userNumbers=confirm("do you want to use numbers?");
-    userUpperCase=confirm("do you want to use upper case lettering?");
-    userLowerCase=confirm("do you want to use lower case lettering?");
+//this is the logic needed to make sure that the user does not go over or under the alotted space for the password. IF length meets this criterea then this alert shows//
 
 
 
- var userPassword=[];
-//now is the 4 logic strings for the project wilson mentioned. //i think i need to switch what gets concated//
+//i need to set the critera for the password. i need to create prompts for the user to tell me what they want. by storing the user responise in variables i can call back to it later...at least i think i can.//
+  
+var userSymbols=confirm("Should we include Symbols?");
+var userNumbers=confirm("Should we include Numbers?");
+var userUpperCase=confirm("How about Upper Case Letters?");
+var  userLowerCase=confirm("Lower Case Letters?");
+
+
+
+ var userPassword=[];// this will contain the users inputs i.e. symbols, numbers, uppercase, or lowercase,
+//now is the 4 logic strings for the project wilson mentioned. //i think i need to switch what gets concated// my previous logic was to complicated used to many ifs. because the else is the opposite of the if so it has the no option built into it.// 
 if (userSymbols){
   userPassword = userPassword.concat(symbols);
 }
@@ -42,111 +46,35 @@ if (userLowerCase){
   userPassword=userPassword.concat(lowerCase);
 }
 console.log(userPassword);
+//i need to force the user to pick at least one choice
+while (userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false);
+userNumbers;
+userLowerCase;
+userSymbols;
+userUpperCase
 
 
-
-var newPassword = ""
-
+var newPassword = ""// this is the variable for the random number that the loop will push out//
+//this is the loop that pops out the random character from the array//
 for (var i =0; i <userLength; i++){
-  newPassword=newPassword + userPassword[Math.floor(Math.random() * userPassword.length)];
+  newPassword=newPassword + userPassword[Math.floor(Math.random() * userPassword.length)];//this makes newPassword = whatever the user put in [using the random numbergenerated rounded to the nearest number times the total amount within userPassword].//
 }
-return newPassword;
-  
+
+return newPassword; //  return makes sure that this is the final number displayed so when it called up in the next 'writePassword' section it will show this number when generatePassword is brought up.//
 }
-// // Write password to the #password input
-
-// for (var i = 0; i < userLength; i++) {
-//   newPassword = newPassword + userPassword[Math.floor(Math.random() * userPassword.length)];
-//   console.log(newPassword)
-// }
-// return newPassword;
-// }
-
-
+//i wasn't running my loop and return within the same function so it was not showing up properly.//
 
 
 
 function writePassword() {
   
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword();//whenever i type password will bring back what ever the generate password button brought back
+  var passwordText = document.querySelector("#password");//whenever type passwordText it will select the portion on the html document that has the id="password"//
 
   passwordText.value = password;
 
 }
 
 
-
-
-
-
-
-
-    
-
-
-
-
-// // Add event listener to generate button "my start event from the pseudo code"
-generateBtn.addEventListener("click", writePassword);//every time i click the genreate btn it runs the 'write password' code which includes the logic for generating and asking the requists for the password. 
-
-
-// if (userSymbols === true && userNumbers ===true  && userUpperCase ===true && userLowerCase === true); {
-//   storedPassword.push(storedPassword.concat(symbols,upperCase,lowerCase,numbers));
-// }
-
-// if (userSymbols ===true && userNumbers ===true && userUpperCase ===true); {
-//   storedPassword.push(storedPassword.concat(symbols,upperCase,numbers));
-// }
-
-// if (userSymbols && userNumbers && userLowerCase); {
-//   storedPassword = storedPassword.concat(symbols,lowerCase,numbers);
-// }
-
-// if (userSymbols && userNumbers); {
-//   storedPassword = storedPassword.concat(symbols,numbers);
-// }
-// if (userSymbols && userUpperCase); {
-//   storedPassword = storedPassword.concat(symbols,upperCase);
-// }
-// if (userSymbols && userLowerCase); {
-//   storedPassword = storedPassword.concat(symbols,lowerCase);
-// }
-// if (userNumbers && userUpperCase && userLowerCase);{
-//   storedPassword = storedPassword.concat(numbers,upperCase,lowerCase);
-// }
-// if (userNumbers && userUpperCase);{
-//   storedPassword = storedPassword.concat(numbers,upperCase);
-// }
-// if (userNumbers && userLowerCase);{
-//   storedPassword = storedPassword.concat(numbers,lowerCase);
-// }
-// if (userUpperCase && userLowerCase);{
-//   storedPassword=storedPassword.concat(upperCase,lowerCase);
-// }
-
-// // if (userSymbols);{
-// //   storedPassword = symbols;
-// // }
-// // if (userNumbers);{
-// //   storedPassword = numbers;
-// // }
-
-// // if (userUpperCase);{
-// //   storedPassword = upperCase
-// // }
-// // if (userLowerCase);{
-// //   storedPassword = lowerCase;
-// // }
-//  ;//okay so they all get pushed to my userPassword array we are on the right track//
-//  console.log(storedPassword);
-
-// var newPassword="";
-
-// for (var i = 0; i < length; i++) {
-//   newPassword = storedPassword[Math.floor(Math.random() * storedPassword.length)];
-//   var password = newPassword.join(storedPassword);
-//   password.appendChild(newPassword);
-//   console.log(newPassword);
-// }
-
+// // Add event listener to generate button "my start event from the pseudo code"//
+generateBtn.addEventListener("click", writePassword);//every time the user  clicks the generatebtn it runs the 'write password' code which includes the logic for generating and asking the requists for the password.// 
