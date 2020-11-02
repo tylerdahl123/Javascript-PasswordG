@@ -80,3 +80,4 @@ function writePassword() {
 
 // // Add event listener to generate button "my start event from the pseudo code"//
 generateBtn.addEventListener("click", writePassword);//every time the user  clicks the generatebtn it runs the 'write password' code which includes the logic for generating and asking the requists for the password.// 
+//quick change for the read me to look at it
