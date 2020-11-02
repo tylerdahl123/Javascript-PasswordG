@@ -12,16 +12,17 @@ var userLowerCase;
  
 //I need to create the function that is being called back to in generatePassword downbelow. i was trying to make a new function entirely before. make sure to slow down and read all the code.//
 function generatePassword(){
-    userLength = prompt("How many Characters in your Password?");
+    userLength = prompt("How many characters in your Password?");
 //user length has a new value cause the user filled them in. 
     if(userLength < 7 || userLength > 128) {
       alert ("password must be between 8 and 128");
-      userLength = prompt("How many Characters in your Password?");
+      userLength = prompt("How many characters in your Password?");
   }  
-//this is the logic needed to make sure that the user does not go over or under the alotted space for the password. IF length meets this criterea then this alert shows//
 
-
-
+while(userLength < 7 || userLength > 128){
+  alert("You need to pick a number between 8 and 128");
+  userLength = prompt("Now...how many characters in your password?");
+}
 //i need to set the critera for the password. i need to create prompts for the user to tell me what they want. by storing the user responise in variables i can call back to it later...at least i think i can.//
   
 var userSymbols=confirm("Should we include Symbols?");
@@ -29,6 +30,13 @@ var userNumbers=confirm("Should we include Numbers?");
 var userUpperCase=confirm("How about Upper Case Letters?");
 var  userLowerCase=confirm("Lower Case Letters?");
 
+while ( userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
+alert("You need at least one criterion");
+userSymbols = confirm ("Should we add Symbols this time?");
+userNumbers = confirm ("Should we add Numbers this time?");
+userUpperCase= confirm("How about Upper Case Letters?");
+userLowerCase = confirm("Lower Case Letters?");
+}
 
 
  var userPassword=[];// this will contain the users inputs i.e. symbols, numbers, uppercase, or lowercase,
@@ -47,13 +55,6 @@ if (userLowerCase){
 }
 console.log(userPassword);
 //i need to force the user to pick at least one choice
-while (userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
-alert("You need at least one criterion");
-userSymbols = confirm ("Should we add Symbols this time?");
-userNumbers = confirm ("Should we add Numbers this time?");
-userUpperCase= confirm("How about Upper Case Letters?");
-userLowerCase = confirm("Lower Case Letters?");
-}
 
 var newPassword = ""// this is the variable for the random number that the loop will push out//
 //this is the loop that pops out the random character from the array//
