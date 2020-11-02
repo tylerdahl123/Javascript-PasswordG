@@ -14,7 +14,7 @@ var userLowerCase;
 function generatePassword(){
     userLength = prompt("How many characters in your Password?");
 //user length has a new value cause the user filled them in. 
-    if(userLength < 7 || userLength > 128) {
+    while (userLength < 7 || userLength > 128) {
       alert ("password must be between 8 and 128");
       userLength = prompt("How many characters in your Password?");
   }  
@@ -30,7 +30,7 @@ var userNumbers=confirm("Should we include Numbers?");
 var userUpperCase=confirm("How about Upper Case Letters?");
 var  userLowerCase=confirm("Lower Case Letters?");
 
-if ( userNumbers === false, userLowerCase === false, userSymbols === false, userUpperCase === false) {
+while ( userNumbers === false && userLowerCase === false && userSymbols === false && userUpperCase === false) {
 alert("You need at least one criterion");
 userSymbols = confirm ("Should we add Symbols this time?");
 userNumbers = confirm ("Should we add Numbers this time?");
